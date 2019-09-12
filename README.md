@@ -3,7 +3,7 @@ Combining Point and Line Samples for Direct Illumination
 
 This repository contains an implementation of the 2019 EGSR paper ["Combining Point and Line Samples for Direct Illumination"](https://cs.dartmouth.edu/~wjarosz/publications/salesin19combining.html) by Katherine Salesin and Wojciech Jarosz. If you use this code, please cite the paper :)
 
-It is built on an [implementation](http://graphics.cs.kuleuven.be/publications/phdniels/index.html) of the 2016 EGSR paper "Line Sampling for Direct Illumination" by Niels Billen and Philip Dutré, which in turn is built on [PBRTv3](http://pbrt.org).
+It is built on an implementation of the 2016 EGSR paper ["Line Sampling for Direct Illumination"](http://graphics.cs.kuleuven.be/publications/BD2016LSFDI/) by Niels Billen and Philip Dutré, which in turn is built on [PBRTv3](http://pbrt.org).
 
 See PBRT's README (pasted below) for installation and build instructions.
 
