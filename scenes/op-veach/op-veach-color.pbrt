@@ -1,0 +1,143 @@
+
+Integrator "pointline" "integer maxdepth" [ 1 ] "string method" [ "render" ] "string strategy1" [ "brdf" ] "string strategy2" [ "line-solid-angle" ] "float angle2" [ 1 ]
+
+Sampler "random" "integer pixelsamples" [ 1 ]
+PixelFilter "box" "float xwidth" [ 0.5 ] "float ywidth" [ 0.5 ]
+Film "image" "integer xresolution" [ 768 ] "integer yresolution" [ 512 ] "string filename" [ "op-veach-color.exr" ]
+
+LookAt 0 4 20       # eye
+	   0 -2 2.5     # look at
+	   0 1 0          # up
+Camera "perspective" "float fov" [ 20 ] 
+
+WorldBegin
+Scale -1 1 1
+
+# original plates Kd [ 0.0175 0.0225 0.0325 ]
+
+# Plate 1
+AttributeBegin
+Material "plastic" "rgb Kd" [ 0.3 0.3 0.3 ] "rgb Ks" [ 0.9 0.9 0.9 ] "float roughness" [ 0.005 ] "bool remaproughness" [ "false" ]
+Shape "trianglemesh"
+  "point P" [ 4 -2.706510067 0.2560899854 4 -2.08375001 -0.5263230205 -4 -2.08375001 -0.5263230205 -4 -2.08375001 -0.5263230205 -4 -2.706510067 0.2560899854 4 -2.706510067 0.2560899854  ]
+  "integer indices" [ 0 1 2 3 4 5  ]
+AttributeEnd
+
+# Plate 2
+AttributeBegin
+Material "plastic" "rgb Kd" [ 0.3 0.3 0.3 ] "rgb Ks" [ 0.9 0.9 0.9 ] "float roughness" [ 0.02 ] "bool remaproughness" [ "false" ]
+Shape "trianglemesh"
+  "point P" [ 4 -3.288249969 1.369719982 4 -2.838560104 0.4765360057 -4 -2.838560104 0.4765360057 -4 -2.838560104 0.4765360057 -4 -3.288249969 1.369719982 4 -3.288249969 1.369719982  ]
+  "integer indices" [ 0 1 2 3 4 5  ]
+AttributeEnd
+
+# Plate 3
+AttributeBegin
+Material "plastic" "rgb Kd" [ 0.3 0.3 0.3 ] "rgb Ks" [ 0.9 0.9 0.9 ] "float roughness" [ 0.05 ] "bool remaproughness" [ "false" ]
+Shape "trianglemesh"
+  "point P" [ 4 -3.730959892 2.700459957 4 -3.433779955 1.745640039 -4 -3.433779955 1.745640039 -4 -3.433779955 1.745640039 -4 -3.730959892 2.700459957 4 -3.730959892 2.700459957  ]
+  "integer indices" [ 0 1 2 3 4 5  ]
+AttributeEnd
+
+# Plate 4
+AttributeBegin
+Material "plastic" "rgb Kd" [ 0.3 0.3 0.3 ] "rgb Ks" [ 0.9 0.9 0.9 ] "float roughness" [ 0.1 ] "bool remaproughness" [ "false" ]
+Shape "trianglemesh"
+  "point P" [ 4 -3.996150017 4.066699982 4 -3.820689917 3.082210064 -4 -3.820689917 3.082210064 -4 -3.820689917 3.082210064 -4 -3.996150017 4.066699982 4 -3.996150017 4.066699982  ]
+  "integer indices" [ 0 1 2 3 4 5  ]
+AttributeEnd
+
+# Occluder 1
+AttributeBegin
+Material "matte" "rgb Kd" [ 0.9 0.9 0.9 ]
+# Material "none"
+Translate 2.6 -1.4 1
+Scale .6 1 8
+Rotate -55 1 0 0
+Shape "trianglemesh"
+	"integer indices" [ 0 2 1 0 3 2 ] "point P" [ -0.5 0 -0.5 -0.5 0 0.5 0.5 0 0.5 0.5 0 -0.5 ] "float uv" [ 0 0 1 0 1 1 0 1 ]
+AttributeEnd
+
+# Occluder 2
+AttributeBegin
+Material "matte" "rgb Kd" [ 0.9 0.9 0.9 ]
+# Material "none"
+Translate 0.31 -1.4 1
+Scale .4 1 8
+Rotate -55 1 0 0
+Shape "trianglemesh"
+	"integer indices" [ 0 2 1 0 3 2 ] "point P" [ -0.5 0 -0.5 -0.5 0 0.5 0.5 0 0.5 0.5 0 -0.5 ] "float uv" [ 0 0 1 0 1 1 0 1 ]
+AttributeEnd
+
+# Occluder 3
+AttributeBegin
+Material "matte" "rgb Kd" [ 0.9 0.9 0.9 ]
+# Material "none"
+Translate -1.54 -1.4 1
+Scale .18 1 8
+Rotate -55 1 0 0
+Shape "trianglemesh"
+	"integer indices" [ 0 2 1 0 3 2 ] "point P" [ -0.5 0 -0.5 -0.5 0 0.5 0.5 0 0.5 0.5 0 -0.5 ] "float uv" [ 0 0 1 0 1 1 0 1 ]
+AttributeEnd
+
+# Occluder 4
+AttributeBegin
+Material "matte" "rgb Kd" [ 0.9 0.9 0.9 ]
+# Material "none"
+Translate -3.16 -1.4 1
+Scale .1 1 8
+Rotate -55 1 0 0
+Shape "trianglemesh"
+	"integer indices" [ 0 2 1 0 3 2 ] "point P" [ -0.5 0 -0.5 -0.5 0 0.5 0.5 0 0.5 0.5 0 -0.5 ] "float uv" [ 0 0 1 0 1 1 0 1 ]
+AttributeEnd
+
+# Extra small light
+AttributeBegin
+	# rgb(239, 87, 119)
+	# original 500 500 500
+	Material "matte" "rgb Kd" [ 0.0 0.0 0.0 ]
+	Translate -3.43 0 0
+	Rotate -120 1 0 0 
+	Scale .0666 .0666 .0666
+	AreaLightSource "diffuse" "rgb L" [ 500 182.00836 248.95397 ] "integer xsamples" [ 1 ] "integer ysamples" [ 1 ]
+	Shape "quad" "point o" [ 0 0 0 ] "vector u" [ 0 1 0 ] "vector v" [ 1 0 0 ]
+AttributeEnd
+
+# Small light
+AttributeBegin
+	# rgb(255, 221, 89)
+	# original 100.0 100.0 100.0
+	Material "matte" "rgb Kd" [ 0.0 0.0 0.0 ]
+	Translate -1.75 0 0.1
+	Rotate -120 1 0 0 
+	Scale .2 .2 .2
+	AreaLightSource "diffuse" "rgb L" [ 100.0 86.66666 34.90196 ] "integer xsamples" [ 1 ] "integer ysamples" [ 1 ]
+	Shape "quad" "point o" [ 0 0 0 ] "vector u" [ 0 1 0 ] "vector v" [ 1 0 0 ]
+AttributeEnd
+
+# Medium light
+AttributeBegin
+	# rgb(11, 232, 129)
+	# original 11.1111 11.1111 11.1111
+	Material "matte" "rgb Kd" [ 0.0 0.0 0.0 ]
+	Translate 0 0 0.35
+	Rotate -120 1 0 0 
+	Scale .7 .7 .7
+	AreaLightSource "diffuse" "rgb L" [ 0.52681 11.1111 6.17815 ] "integer xsamples" [ 1 ] "integer ysamples" [ 1 ]
+	Shape "quad" "point o" [ 0 0 0 ] "vector u" [ 0 1 0 ] "vector v" [ 1 0 0 ]
+AttributeEnd
+
+# Large light
+AttributeBegin
+    # rgb(75, 207, 250)
+	# original 1.23457 1.23457 1.23457
+	Material "matte" "rgb Kd" [ 0.0 0.0 0.0 ]
+	Translate 2 0 0.5
+	Rotate -120 1 0 0 
+	Scale 1.5 1.5 1.5
+	AreaLightSource "diffuse" "rgb L" [ 0.37037 1.02222 1.23457 ] "integer xsamples" [ 1 ] "integer ysamples" [ 1 ]
+	Shape "quad" "point o" [ 0 0 0 ] "vector u" [ 0 1 0 ] "vector v" [ 1 0 0 ]
+AttributeEnd
+
+
+WorldEnd

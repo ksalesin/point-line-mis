@@ -1,0 +1,1 @@
+/usr/bin/c++    -std=gnu++11 -Wno-conversion-null -O3 -DNDEBUG   CMakeFiles/stacktrace_unittest.dir/src/stacktrace_unittest.cc.o  -o stacktrace_unittest -rdynamic libglog.a -lpthread 

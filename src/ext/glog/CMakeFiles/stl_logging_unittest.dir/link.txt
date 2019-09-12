@@ -1,0 +1,1 @@
+/usr/bin/c++    -std=gnu++11 -Wno-conversion-null -O3 -DNDEBUG   CMakeFiles/stl_logging_unittest.dir/src/stl_logging_unittest.cc.o  -o stl_logging_unittest -rdynamic libglog.a -lpthread 
