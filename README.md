@@ -7,7 +7,7 @@ It is built on an implementation of the 2016 EGSR paper ["Line Sampling for Dire
 
 See PBRT's README (pasted below) for installation and build instructions.
 
-They key classes in this implementation are `PointLineDirectIntegrator` and `Quad`.
+The key classes in this implementation are `PointLineDirectIntegrator` and `Quad`.
 
 Usage of new classes in scene files
 -----------------------------------
